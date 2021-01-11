@@ -19,26 +19,18 @@ function App() {
     getQuiz();
   },[]);
 
-  const questionSubmitHandler = (e: React.FormEvent<EventTarget>) => {
-    e.preventDefault();
-    // if(questionNumber < quizData.length) {
-    //   setQuestionNumber(questionNumber + 1);
-    // }
-    // else if(questionNumber >= quizData.length) {
-    //   setQuizFinished(true);
-    // }
+  const questionSubmitHandler = (selectedAnswer: string, answer: string) => {
+
+    if(selectedAnswer === answer) {
+        setScore(++score);
+    }
+
     if(questionNumber !== quizData.length -1 ) {
        setQuestionNumber(questionNumber + 1);
     }
     else if(questionNumber >= quizData.length -1) {
       setShowResults(true);
     }
-  }
-
-  const onSelectOption = (onSelectOption: string, answer: string) => {
-      if(onSelectOption === answer) {
-        setScore(++score);
-      }
   }
 
   if(!quizData.length) {
@@ -55,7 +47,7 @@ function App() {
         </div>
     )
   }
-
+  
   return (
     <div className="App">
             <span>
@@ -64,7 +56,6 @@ function App() {
                       quizData && quizData.length > 0 && (
                         <QuizData
                           submitQuestion={questionSubmitHandler}
-                          onSelectOption={onSelectOption}
                           question={quizData[questionNumber].question}
                           options={quizData[questionNumber].options}
                           answer={quizData[questionNumber].answer}

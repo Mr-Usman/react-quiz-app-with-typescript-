@@ -16,8 +16,7 @@ export type QuizType = {
 }
 
 export type questionPropsType = {
-    submitQuestion: (e:React.FormEvent<EventTarget>) => void
-    onSelectOption: (selectedOption: string, answer: string) => void
+    submitQuestion: (selectedOption: string, answer: string) => void
     options: string []
     question: string
     answer: string
