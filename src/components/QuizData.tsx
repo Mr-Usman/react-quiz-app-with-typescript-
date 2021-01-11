@@ -24,19 +24,19 @@ const QuizData: React.FC<questionPropsType> = ({
 
              <form onSubmit={submitQuest}>
                 {
-                    options.map((opt: string, ind: number) => {
+                    options.map((option: string, index: number) => {
                         return (
-                            <div key={ind}>
+                            <div key={index}>
                                 <label>
                                     <input
                                         type="radio"
-                                        name="opt"
+                                        name="optionanswere"
                                         required
-                                        value={opt}
+                                        value={option}
                                         onChange={(e) => onSelect(e.target.value, answer)}
-                                        checked={selectedAnswer === opt}
+                                        checked={selectedAnswer === option}
                                     />
-                                    {opt}
+                                    {option}
                                 </label>
                             </div>
                         )
