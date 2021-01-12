@@ -20,13 +20,13 @@ const QuizData: React.FC<questionPropsType> = ({
     
     return(
          <div>
-             <span>Question: {question}</span>
-
+             <div style={{ textAlign: 'left' }}>Question: {question}</div>
+             <br />
              <form onSubmit={submitQuest}>
                 {
                     options.map((option: string, index: number) => {
                         return (
-                            <div key={index}>
+                            <div className="radio-option" key={index}>
                                 <label>
                                     <input
                                         type="radio"
@@ -42,7 +42,8 @@ const QuizData: React.FC<questionPropsType> = ({
                         )
                     })
                 }
-                  <button type="submit">Next</button>
+                  <br />
+                  <button className="submit-btn" type="submit">Next</button>
              </form>
          </div>
     )

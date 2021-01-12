@@ -39,18 +39,20 @@ function App() {
 
   if(showResult) {
     return (
-        <div>
+        <div className="container">
             <h1>Quiz Finished</h1>
             <h3>Maximum score: {quizData.length}</h3>
             <h3>Correct Answers: {score}</h3>
             <h3>Incorrect Answers: {quizData.length - score}</h3>
+
+            {/* <h1>All Questions With Correct Answeres</h1> */}
         </div>
     )
   }
-  
+
   return (
-    <div className="App">
-            <span>
+    <div>
+            <div className="container">
                 <h1>Answer the following Questions.</h1>
                   {
                       quizData && quizData.length > 0 && (
@@ -62,7 +64,7 @@ function App() {
                       />
                       )
                   }
-          </span>
+          </div>
     </div>
   );
 }
