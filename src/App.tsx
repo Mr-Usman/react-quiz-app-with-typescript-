@@ -11,9 +11,14 @@ function App() {
   const [ showResult, setShowResults ] = useState(false);
   let  [ score, setScore ] = useState(0);
 
+  enum QuestionDifficultyLevel {
+    "easy" = 1,
+    "hard" = 2
+  }
+
   useEffect(() => {
     async function getQuiz() {
-      const questions: QuizType[] = await getQuizData(5, "easy");
+      const questions: QuizType[] = await getQuizData(5, QuestionDifficultyLevel[2]);
       setQuizData(questions);
     }
     getQuiz();
